@@ -1,0 +1,38 @@
+<!--
+  Copyright (c) 2015, Luis Vargas. All rights reserved. Use of this source code
+  is governed by a BSD-style license that can be found in the LICENSE file.
+-->
+
+<!-- import polymer-element's definition -->
+<link rel="import" href="../../../packages/polymer/polymer.html">
+
+<link rel="import" href="../../../packages/paper_elements/paper_input.html">
+<link rel="import" href="../../../packages/paper_elements/paper_button.html">
+
+<link rel="import" href="sample_employees_form.html">
+
+<polymer-element name="sample-employees-element" attributes="employee user">
+  <template>
+    <style>
+      paper-button {
+        background-color: #8494AE;
+        color: white;
+      }
+    </style>
+  
+    <template if="{{!editing}}">
+      Id: {{employee.id}}<br>
+      Full Name: <b>{{employee.firstName}} {{employee.lastName}}</b><br>
+      Date of Birth: <i>{{employee.dob | asSlashedDate }}</i><br>
+      <template if="{{user.roles.contains('ADMIN')}}">
+        <paper-button on-click="{{editEmployee}}">Edit</paper-button>
+        <paper-button on-click="{{deleteEmployee}}">Delete</paper-button>
+      </template>
+    </template>
+    <template if="{{editing}}">
+      <sample-employees-form employee="{{employee}}" editing="{{editing}}"></sample-employees-form>
+    </template>
+  
+  </template>
+  <script type="application/dart" src="sample_employees_element.dart"></script>
+</polymer-element>

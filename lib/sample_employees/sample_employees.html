@@ -1,0 +1,41 @@
+<!--
+  Copyright (c) 2015, Luis Vargas. All rights reserved. Use of this source code
+  is governed by a BSD-style license that can be found in the LICENSE file.
+-->
+
+<!-- import polymer-element's definition -->
+<link rel="import" href="../../../packages/polymer/polymer.html">
+
+<link rel="import" href="../../../packages/paper_elements/paper_input.html">
+<link rel="import" href="../../../packages/paper_elements/paper_fab.html">
+
+<link rel="import" href="sample_employees_element.html">
+<link rel="import" href="sample_employees_form.html">
+
+<polymer-element name="sample-employees" attributes="user">
+  <template>
+    <style>
+      paper-fab {
+        background-color: #D23F31;
+      }
+    </style>
+    <template repeat="{{employee in employees}}">
+      <div style="border-bottom: solid thin blue; padding: 10px">
+        <sample-employees-element 
+          user="{{user}}"
+          employee="{{employee}}" 
+          on-employee-saved="{{saveEmployee}}" 
+          on-delete-employee="{{deleteEmployee}}">
+       </sample-employees-element>
+      </div>
+    </template>
+    <template if="{{!adding && user.roles.contains('ADMIN')}}">
+      <paper-fab icon="add" on-click="{{beginAddingEmployee}}"></paper-fab>
+    </template>
+    <template if="{{adding}}">
+      <sample-employees-form editing="{{adding}}" on-employee-saved="{{addEmployee}}"></sample-employees-form>
+    </template>
+  
+  </template>
+  <script type="application/dart" src="sample_employees.dart"></script>
+</polymer-element>

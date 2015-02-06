@@ -1,0 +1,40 @@
+<!--
+  Copyright (c) 2015, Luis Vargas. All rights reserved. Use of this source code
+  is governed by a BSD-style license that can be found in the LICENSE file.
+-->
+
+<!-- import polymer-element's definition -->
+<link rel="import" href="../../../packages/polymer/polymer.html">
+
+<link rel="import" href="../../../packages/paper_elements/paper_input.html">
+<link rel="import" href="../../../packages/paper_elements/paper_fab.html">
+
+<link rel="import" href="sample_persons_element.html">
+<link rel="import" href="sample_persons_form.html">
+
+<polymer-element name="sample-persons">
+  <template>
+    <style>
+      paper-fab {
+        background-color: #D23F31;
+      }
+    </style>
+    <template repeat="{{person in persons}}">
+      <div style="border-bottom: solid thin blue; padding: 10px">
+        <sample-persons-element 
+          person="{{person}}" 
+          on-person-saved="{{savePerson}}" 
+          on-delete-person="{{deletePerson}}">
+       </sample-persons-element>
+      </div>
+    </template>
+    <template if="{{!adding}}">
+      <paper-fab icon="add" on-click="{{beginAddingPerson}}"></paper-fab>
+    </template>
+    <template if="{{adding}}">
+      <sample-persons-form editing="{{adding}}" on-person-saved="{{addPerson}}"></sample-persons-form>
+    </template>
+  
+  </template>
+  <script type="application/dart" src="sample_persons.dart"></script>
+</polymer-element>

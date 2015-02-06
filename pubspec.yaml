@@ -1,0 +1,13 @@
+name: drails_sample_app
+version: 0.0.1
+description: A minimal command-line application.
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+dependencies:
+  browser: any
+  drails: any
+  paper_elements: any
+  polymer: any
+  sprintf: any
+dev_dependencies:
+  unittest: any

@@ -1,0 +1,36 @@
+<!--
+  Copyright (c) 2015, Luis Vargas. All rights reserved. Use of this source code
+  is governed by a BSD-style license that can be found in the LICENSE file.
+-->
+
+<!-- import polymer-element's definition -->
+<link rel="import" href="../../../packages/polymer/polymer.html">
+
+<link rel="import" href="../../../packages/paper_elements/paper_input.html">
+<link rel="import" href="../../../packages/paper_elements/paper_button.html">
+
+<link rel="import" href="sample_persons_form.html">
+
+<polymer-element name="sample-persons-element" attributes="person">
+  <template>
+    <style>
+      paper-button {
+        background-color: #8494AE;
+        color: white;
+      }
+    </style>
+  
+    <template if="{{!editing}}">
+      Id: {{person.id}}<br>
+      Full Name: <b>{{person.firstName}} {{person.lastName}}</b><br>
+      Date of Birth: <i>{{person.dob | asSlashedDate }}</i><br>
+      <paper-button on-click="{{editPerson}}">Edit</paper-button>
+      <paper-button on-click="{{deletePerson}}">Delete</paper-button>
+    </template>
+    <template if="{{editing}}">
+      <sample-persons-form person="{{person}}" editing="{{editing}}"></sample-persons-form>
+    </template>
+  
+  </template>
+  <script type="application/dart" src="sample_persons_element.dart"></script>
+</polymer-element>
