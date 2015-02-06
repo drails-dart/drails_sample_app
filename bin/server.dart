@@ -41,7 +41,7 @@ void main() {
   var portEnv = Platform.environment['PORT'];
   var port = portEnv == null ? 4040 : int.parse(portEnv);
   
-  print(port);
+  print('port: ' + port);
   
   initServer([#drails_example], port: port);
 }
