@@ -21,13 +21,13 @@ class SampleEmployees extends PolymerElement {
   @observable bool adding;
   
   ready() {
-    HttpRequest.getString('http://localhost:4040/employees').then((response) {
+    HttpRequest.getString('employees').then((response) {
       employees = toObservable(deserializeList(response, Employee));
     });
   }
   
   deleteEmployee(Event e, Employee p, Element target) {
-    HttpRequest.request('http://localhost:4040/employees/${p.id}', method: 'DELETE').then((response) {
+    HttpRequest.request('employees/${p.id}', method: 'DELETE').then((response) {
       employees.remove(p);
     });
   }

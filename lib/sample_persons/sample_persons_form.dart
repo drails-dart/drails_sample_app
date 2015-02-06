@@ -34,7 +34,7 @@ class SamplePersonsForm extends PolymerElementExt {
   }
   
   void savePerson(Event e, detail, Element target) {
-    HttpRequest.request('http://localhost:4040/persons', method: 'POST', sendData: serialize(personAux)).then((request) {
+    HttpRequest.request('persons', method: 'POST', sendData: serialize(personAux)).then((request) {
       fire('person-saved', detail: deserialize(request.response, Person));
       editing = false;
     });
