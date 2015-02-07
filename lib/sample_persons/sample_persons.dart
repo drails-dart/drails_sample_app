@@ -19,7 +19,7 @@ class SamplePersons extends PolymerElement {
   @observable bool adding;
   
   ready() {
-    HttpRequest.getString('http://localhost:4040/persons').then((response) {
+    HttpRequest.getString('persons').then((response) {
       persons = toObservable(deserializeList(response, Person));
     });
   }
