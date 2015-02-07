@@ -6,10 +6,11 @@ environment:
 dependencies:
   browser: any
   drails: any
-  paper_elements: any
-  polymer: any
-  shelf: any
-  shelf_static: any
+  paper_elements: '>=0.5.0 <0.6.0'
+  polymer: '>=0.15.0 <0.16.0'
   sprintf: any
 dev_dependencies:
   unittest: any
+transformers:
+- polymer:
+    entry_points: web/index.html
