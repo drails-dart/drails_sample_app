@@ -24,6 +24,7 @@ void main() {
   initLogger();
 
   ENV = 'prod';
+  CLIENT_DIR['prod'] = '/../build/web/';
 
   POST['/login'] = (HttpSession session, @RequestBody User user) {
     var cu = g_users.values.singleWhere((u) => u.name == user.name && u.password == user.password);
