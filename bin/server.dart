@@ -37,7 +37,12 @@ void main() {
   GET['/logout'] = (HttpSession session) {
     session['user'] = null;
   };
+  var portEnv = Platform.environment['PORT'];
+  var port = portEnv == null ? 8089 : int.parse(portEnv);
 
-  initServer([#drails_example]);
+  print('portEnv: $portEnv');
+  print('port: $port');
+
+  initServer([#drails_example], port: port, address: '0.0.0.0');
   
 }
