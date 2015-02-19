@@ -18,10 +18,10 @@
       }
     </style>
     <form style="display:block">
-      <paper-input lable="Id:" inputvalue="{{personAux.id | asInt}}" disabled></paper-input><br>
-      <paper-input lable="First Name:" inputvalue="{{personAux.firstName}}"></paper-input><br>
-      <paper-input lable="Last Name:" inputvalue="{{personAux.lastName}}"></paper-input><br>
-      <paper-input type="date" lable="Date of Birth:" inputvalue="{{personAux.dob | asDate}}"></paper-input><br>
+      <paper-input label="Id:" value="{{personAux.id | asInt}}" disabled></paper-input><br>
+      <paper-input label="First Name:" value="{{personAux.firstName}}"></paper-input><br>
+      <paper-input label="Last Name:" value="{{personAux.lastName}}"></paper-input><br>
+      <paper-input type="date" label="Date of Birth:" value="{{personAux.dob | asDate}}"></paper-input><br>
       <paper-button on-click="{{savePerson}}">Save</paper-button>
       <paper-button on-click="{{cancelEditing}}">Cancel</paper-button>
     </form>
