@@ -44,6 +44,6 @@ void main() {
   print('portEnv: $portEnv');
   print('port: $port');
 
-  initServer([#drails_example], port: port, address: new InternetAddress('0.0.0.0'));
+  initServer([#drails_example], port: port, address: '0.0.0.0');
   
 }
