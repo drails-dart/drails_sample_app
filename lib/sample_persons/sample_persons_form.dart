@@ -7,7 +7,7 @@ import 'dart:html';
 import 'package:dson/dson.dart';
 import 'package:drails_sample_app/PolymerElementExt.dart';
 
-/// A Polymer `<sample-persons>` element.
+/// A Polymer `<sample-persons-form>` element.
 @CustomTag('sample-persons-form')
 class SamplePersonsForm extends PolymerElementExt {
   /// Constructor used to create instance of SamplePersonsForm.
