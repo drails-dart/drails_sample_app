@@ -73,8 +73,8 @@
           </template>
         </core-menu>
         <template if="{{user == null || user.roles == null}}">
-          <paper-input label="User Name" inputvalue="{{user.name}}" style="width: 90%"></paper-input>
-          <paper-input type="password" label="Password" inputvalue="{{user.password}}" style="width: 90%"></paper-input>
+          <paper-input label="User Name" value="{{user.name}}" style="width: 90%"></paper-input>
+          <paper-input type="password" label="Password" value="{{user.password}}" style="width: 90%"></paper-input>
           <paper-button style="background-color: green" on-click="{{login}}">Login</paper-button>
         </template>
         <template if="{{user != null && user.roles != null}}">
