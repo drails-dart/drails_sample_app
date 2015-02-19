@@ -23,7 +23,7 @@ initLogger() {
 void main() {
   initLogger();
 
-  ENV = 'dev';
+  ENV = 'prod';
 
   POST['/login'] = (HttpSession session, @RequestBody User user) {
     var cu = g_users.values.singleWhere((u) => u.name == user.name && u.password == user.password);
@@ -37,12 +37,7 @@ void main() {
   GET['/logout'] = (HttpSession session) {
     session['user'] = null;
   };
-  var portEnv = Platform.environment['PORT'];
-  var port = portEnv == null ? 8089 : int.parse(portEnv);
 
-  print('portEnv: $portEnv');
-  print('port: $port');
-
-  initServer([#drails_example], port: port, address: '0.0.0.0');
+  initServer([#drails_example]);
   
 }
