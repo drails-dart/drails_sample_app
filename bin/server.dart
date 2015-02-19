@@ -24,8 +24,6 @@ void main() {
   initLogger();
 
   ENV = 'dev';
-  CLIENT_DIR['dev'] = '/../web/';
-  CLIENT_DIR['prod'] = '/../build/web/';
 
   POST['/login'] = (HttpSession session, @RequestBody User user) {
     var cu = g_users.values.singleWhere((u) => u.name == user.name && u.password == user.password);
@@ -45,6 +43,6 @@ void main() {
   print('portEnv: $portEnv');
   print('port: $port');
 
-  initServer([#drails_example], port: port, address: new InternetAddress('0.0.0.0'));
+  initServer([#drails_example], port: port, address: '0.0.0.0');
   
 }

@@ -10,7 +10,7 @@ import 'package:drails_sample_app/PolymerElementExt.dart';
 /// A Polymer `<sample-persons>` element.
 @CustomTag('sample-persons-form')
 class SamplePersonsForm extends PolymerElementExt {
-  /// Constructor used to create instance of MainApp.
+  /// Constructor used to create instance of SamplePersonsForm.
   SamplePersonsForm.created() : super.created();
 
   @published Person person;

@@ -1,8 +1,8 @@
 part of models;
 
 class Person {
-  int id;
-  String firstName;
-  String lastName;
-  DateTime dob;
+  @observable int id;
+  @observable String firstName;
+  @observable String lastName;
+  @observable DateTime dob;
 }

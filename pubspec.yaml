@@ -14,3 +14,6 @@ dev_dependencies:
 transformers:
 - polymer:
     entry_point: web/index.html
+- $dart2js:
+   $exclude: [bin/server.dart, test/all.dart]
+   $include: web/index.html_bootstrap.dart

@@ -6,6 +6,8 @@
 /// This is an awesome library. More dartdocs go here.
 library models;
 
+import 'package:observe/observe.dart';
+
 part 'src/user.dart';
 part 'src/person.dart';
 part 'src/employee.dart';

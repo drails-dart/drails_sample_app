@@ -6,15 +6,19 @@ import 'package:drails_sample_app/models.dart';
 import 'dart:html';
 import 'package:dson/dson.dart';
 
+
+//@MirrorsUsed(targets:const['drails_sample_app_models'], override:'*')
+//import 'dart:mirrors';
+
 /// A Polymer `<main-app>` element.
 @CustomTag('main-app')
 class MainApp extends PolymerElement {
-  
-  @observable User user;
-
   /// Constructor used to create instance of MainApp.
   MainApp.created() : super.created();
   
+  @observable User user;
+  
+  @override
   ready() {
     var usrStr = window.sessionStorage['user'];
     if(usrStr != null)
