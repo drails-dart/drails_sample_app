@@ -11,9 +11,9 @@ part 'data/persons_data.dart';
 
 
 initLogger() {
-  Logger.root.level = Level.OFF;
-  hierarchicalLoggingEnabled = true;
-  new Logger('server_init').level = Level.INFO;
+  Logger.root.level = Level.ALL;
+//  hierarchicalLoggingEnabled = true;
+//  new Logger('server_init').level = Level.INFO;
 
   Logger.root.onRecord.listen((LogRecord rec) {
     print('${rec.level.name}: ${rec.time}: ${rec.message}');
