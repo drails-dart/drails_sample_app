@@ -38,6 +38,6 @@ void main() {
     session['user'] = null;
   };
 
-  initServer([#drails_example]);
+  initServer([#drails_example], address: new InternetAddress('0.0.0.0'));
   
 }
