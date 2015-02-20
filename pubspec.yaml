@@ -5,9 +5,7 @@ environment:
   sdk: '>=1.0.0 <2.0.0'
 dependencies:
   browser: any
-  drails:
-    git: https://github.com/luisvt/Drails
-    version: 0.1.3+2
+  drails: 0.1.3+3
   paper_elements: '>=0.6.1 <0.7.0'
   polymer: '>=0.15.4 <0.16.0'
   sprintf: any
