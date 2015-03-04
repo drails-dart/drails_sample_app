@@ -5,6 +5,7 @@ import 'package:polymer/polymer.dart';
 import 'package:drails_sample_app/models.dart';
 import 'dart:html';
 import 'package:dson/dson.dart';
+import 'dart:async';
 
 /// A Polymer `<sample-persons>` element.
 @CustomTag('sample-persons')
@@ -33,6 +34,17 @@ class SamplePersons extends PolymerElement {
   savePerson(Event e, Person p, Element target) {
     var p1 = persons.firstWhere((e) => e.id == p.id);
     persons[persons.indexOf(p1)] = p;
+  }
+  
+  addingChanged(old) {
+    if(adding)
+      Timer.run(() {
+        $['scrollable'].scrollTop = $['scrollable'].scrollHeight;
+      });
+  }
+  
+  scrollDownToPersonElement(e, top) {
+      $['scrollable'].scrollTop += top.round() - 75;
   }
   
   beginAddingPerson() => adding = true;

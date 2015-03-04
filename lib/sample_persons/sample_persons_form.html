@@ -19,7 +19,7 @@
     </style>
     <form style="display:block">
       <paper-input label="Id:" value="{{personAux.id | asInt}}" disabled></paper-input><br>
-      <paper-input label="First Name:" value="{{personAux.firstName}}"></paper-input><br>
+      <paper-input id="firstName" label="First Name:" value="{{personAux.firstName}}" autofocus></paper-input><br>
       <paper-input label="Last Name:" value="{{personAux.lastName}}"></paper-input><br>
       <paper-input type="date" label="Date of Birth:" value="{{personAux.dob | asDate}}"></paper-input><br>
       <paper-button on-click="{{savePerson}}">Save</paper-button>

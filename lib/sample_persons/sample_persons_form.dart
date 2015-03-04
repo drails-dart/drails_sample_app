@@ -6,6 +6,7 @@ import 'package:drails_sample_app/models.dart';
 import 'dart:html';
 import 'package:dson/dson.dart';
 import 'package:drails_sample_app/PolymerElementExt.dart';
+import 'package:paper_elements/paper_input.dart';
 
 /// A Polymer `<sample-persons-form>` element.
 @CustomTag('sample-persons-form')
@@ -31,6 +32,10 @@ class SamplePersonsForm extends PolymerElementExt {
   
   void cancelEditing(Event e, detail, Element target) {
     editing = false;
+  }
+  
+  editingChanged(old) {
+    if(editing) fire('begin-editing', detail: getBoundingClientRect().top);
   }
   
   void savePerson(Event e, detail, Element target) {

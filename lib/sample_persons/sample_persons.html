@@ -17,24 +17,29 @@
     <style>
       paper-fab {
         background-color: #D23F31;
+        position: absolute;
+        right: 20px;
+        bottom: 15px;
       }
     </style>
-    <template repeat="{{person in persons}}">
-      <div style="border-bottom: solid thin blue; padding: 10px">
-        <sample-persons-element 
-          person="{{person}}" 
-          on-person-saved="{{savePerson}}" 
-          on-delete-person="{{deletePerson}}">
-       </sample-persons-element>
-      </div>
-    </template>
+    <section id="scrollable" style="overflow-y: auto; height: 100%">
+	    <template repeat="{{person in persons}}">
+	      <div style="border-bottom: solid thin blue; padding: 10px">
+	        <sample-persons-element on-begin-editing="{{scrollDownToPersonElement}}"
+	          person="{{person}}" 
+	          on-person-saved="{{savePerson}}" 
+	          on-delete-person="{{deletePerson}}">
+	       </sample-persons-element>
+	      </div>
+	    </template>
+	    
+      <template if="{{adding}}">
+        <sample-persons-form editing="{{adding}}" on-person-saved="{{addPerson}}"></sample-persons-form>
+      </template>
+    </section>
     <template if="{{!adding}}">
       <paper-fab icon="add" on-click="{{beginAddingPerson}}"></paper-fab>
     </template>
-    <template if="{{adding}}">
-      <sample-persons-form editing="{{adding}}" on-person-saved="{{addPerson}}"></sample-persons-form>
-    </template>
-  
   </template>
   <script type="application/dart" src="sample_persons.dart"></script>
 </polymer-element>

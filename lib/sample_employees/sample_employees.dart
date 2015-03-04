@@ -42,5 +42,12 @@ class SampleEmployees extends PolymerElement {
   
   beginAddingEmployee() => adding = true;
   
+  addingChanged(old) {
+    print(old);
+    if(adding) {
+      scrollTop = scrollHeight;
+    }
+  }
+  
   addEmployee(Event e, Employee p, Element target) => employees.add(p);
 }
