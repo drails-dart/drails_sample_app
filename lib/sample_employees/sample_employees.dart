@@ -23,6 +23,9 @@ class SampleEmployees extends PolymerElement {
   ready() {
     HttpRequest.getString('employees').then((response) {
       employees = toObservable(deserializeList(response, Employee));
+    }, onError: (ProgressEvent e) {
+      if((e.target as HttpRequest).status == 401)
+        window.dispatchEvent(new CustomEvent('show-login'));
     });
   }
   

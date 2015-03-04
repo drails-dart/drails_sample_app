@@ -19,6 +19,9 @@ class MainApp extends PolymerElement {
   
   @override
   ready() {
+    window.addEventListener('show-login', (e) {
+      clearSessionData();
+    });
     var usrStr = window.sessionStorage['user'];
     if(usrStr != null)
       user = deserialize(usrStr, User);
@@ -35,9 +38,13 @@ class MainApp extends PolymerElement {
   
   logout(Event e, details, Element target) {
     HttpRequest.request("logout", method: 'GET').then((req) {
-      user = new User();
-      $['core_menu'].selected = 0;
-      window.sessionStorage.clear();
+      clearSessionData();
     });
+  }
+
+  void clearSessionData() {
+    user = new User();
+    $['core_menu'].selected = 0;
+    window.sessionStorage.clear();
   }
 }

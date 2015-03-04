@@ -18,6 +18,7 @@ class SampleEmployeesForm extends PolymerElementExt {
   @observable Employee employeeAux;
 
   ready() {
+    
     employeeAux = new Employee();
     if(employee != null)
       employeeAux
@@ -29,7 +30,7 @@ class SampleEmployeesForm extends PolymerElementExt {
       employeeAux.dob = new DateTime.now();
   }
   
-  void cancelEditing(Event e, detail, Element target) {
+  void cancelEditing() {
     editing = false;
   }
   
@@ -37,6 +38,9 @@ class SampleEmployeesForm extends PolymerElementExt {
     HttpRequest.request('employees', method: 'POST', sendData: serialize(employeeAux)).then((request) {
       fire('employee-saved', detail: deserialize(request.response, Employee));
       editing = false;
+    }, onError: (ProgressEvent re) {
+      if((re.target as HttpRequest).status == 401)
+        window.dispatchEvent(new CustomEvent('show-login'));
     });
   }
 }

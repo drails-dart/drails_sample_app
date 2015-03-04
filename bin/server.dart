@@ -11,9 +11,9 @@ part 'data/persons_data.dart';
 
 
 initLogger() {
-  Logger.root.level = Level.ALL;
-//  hierarchicalLoggingEnabled = true;
-//  new Logger('server_init').level = Level.INFO;
+  Logger.root.level = Level.OFF;
+  hierarchicalLoggingEnabled = true;
+  new Logger('server_init').level = Level.INFO;
 
   Logger.root.onRecord.listen((LogRecord rec) {
     print('${rec.level.name}: ${rec.time}: ${rec.message}');
@@ -29,6 +29,8 @@ void main() {
     var cu = g_users.values.singleWhere((u) => u.name == user.name && u.password == user.password);
     if(cu == null) throw Exception;
     session['user'] = cu;
+    
+    //return user without password
     return new User()
         ..name = cu.name
         ..roles = cu.roles;
