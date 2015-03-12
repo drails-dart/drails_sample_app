@@ -2,8 +2,8 @@
 
 This is a sample application that demonstrate the usage of the framework Drails. It is composed by two parts:
 
-* Client Application
-* Server Application
+* Client Application (Created using Polymer.dart)
+* Server Application (Created using Drails)
 
 you can see it in action on: http://drails-sample-app.herokuapp.com/
 
