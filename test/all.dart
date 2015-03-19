@@ -3,8 +3,8 @@
 
 library all_tests;
 
-import 'drails_sample_app_test.dart' as drails_sample_app_test;
+import 'login_test.dart';
 
 void main() {
-  drails_sample_app_test.defineTests();
+  loginTests();
 }

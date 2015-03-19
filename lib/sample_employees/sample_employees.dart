@@ -2,7 +2,7 @@
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 import 'package:polymer/polymer.dart';
-import 'package:drails_sample_app/models.dart';
+import 'package:drails_sample_app/models/models.dart';
 import 'dart:html';
 import 'package:dson/dson.dart';
 

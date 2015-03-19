@@ -3,7 +3,8 @@ library drails_example;
 import 'package:drails/drails.dart';
 import 'package:logging/logging.dart';
 import 'dart:io';
-import 'package:drails_sample_app/models.dart';
+import 'package:drails_sample_app/models/models.dart';
+import 'package:dson/dson.dart';
 
 part 'controllers/persons_controller.dart';
 part 'controllers/employee_controller.dart';
@@ -30,10 +31,7 @@ void main() {
     if(cu == null) throw Exception;
     session['user'] = cu;
     
-    //return user without password
-    return new User()
-        ..name = cu.name
-        ..roles = cu.roles;
+    return serialize(cu, exclude: 'password');
   };
 
   GET['/logout'] = (HttpSession session) {
