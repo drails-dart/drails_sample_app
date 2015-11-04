@@ -35,8 +35,8 @@ class SampleEmployeesForm extends PolymerElementExt {
   }
   
   void saveEmployee(Event e, detail, Element target) {
-    HttpRequest.request('employees', method: 'POST', sendData: serialize(employeeAux)).then((request) {
-      fire('employee-saved', detail: deserialize(request.response, Employee));
+    HttpRequest.request('employees', method: 'POST', sendData: toJson(employeeAux)).then((request) {
+      fire('employee-saved', detail: fromJson(request.response, Employee));
       editing = false;
     }, onError: (ProgressEvent re) {
       if((re.target as HttpRequest).status == 401)

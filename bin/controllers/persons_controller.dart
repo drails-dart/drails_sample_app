@@ -1,5 +1,6 @@
 part of drails_example;
 
+@injectable
 class PersonsController {
   Person get(int id) => g_persons[id];
   

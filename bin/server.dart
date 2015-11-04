@@ -1,6 +1,7 @@
 library drails_example;
 
 import 'package:drails/drails.dart';
+import 'package:drails_di/drails_di.dart';
 import 'package:logging/logging.dart';
 import 'dart:io';
 import 'package:drails_sample_app/models/models.dart';
@@ -24,20 +25,27 @@ initLogger() {
 void main() {
   initLogger();
 
-  ENV = 'prod';
+//  ENV = 'prod';
 
-  POST['/login'] = (HttpSession session, @RequestBody User user) {
+  initServer(['drails_example']);
+}
+
+@Path('')
+@injectable
+class LoginController {
+
+  @POST
+  login(HttpSession session, @RequestBody User user) {
     var cu = g_users.values.singleWhere((u) => u.name == user.name && u.password == user.password);
     if(cu == null) throw Exception;
     session['user'] = cu;
-    
-    return serialize(cu, exclude: 'password');
-  };
 
-  GET['/logout'] = (HttpSession session) {
+    return toJson(cu, exclude: 'password');
+  }
+
+  @GET
+  logout(HttpSession session) {
     session['user'] = null;
-  };
-
-  initServer([#drails_example]);
-  
+  }
 }
+

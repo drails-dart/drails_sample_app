@@ -1,5 +1,6 @@
 part of drails_example;
 
+@injectable
 @AuthorizeRoles(const ['ADMIN'])
 class EmployeesController {
 

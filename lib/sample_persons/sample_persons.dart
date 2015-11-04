@@ -21,7 +21,7 @@ class SamplePersons extends PolymerElement {
   
   ready() {
     HttpRequest.getString('persons').then((response) {
-      persons = toObservable(deserializeList(response, Person));
+      persons = toObservable(fromJsonList(response, Person));
     });
   }
   

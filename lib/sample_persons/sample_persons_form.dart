@@ -6,7 +6,6 @@ import 'package:drails_sample_app/models/models.dart';
 import 'dart:html';
 import 'package:dson/dson.dart';
 import 'package:drails_sample_app/PolymerElementExt.dart';
-import 'package:paper_elements/paper_input.dart';
 
 /// A Polymer `<sample-persons-form>` element.
 @CustomTag('sample-persons-form')
@@ -39,8 +38,8 @@ class SamplePersonsForm extends PolymerElementExt {
   }
   
   void savePerson(Event e, detail, Element target) {
-    HttpRequest.request('persons', method: 'POST', sendData: serialize(personAux)).then((request) {
-      fire('person-saved', detail: deserialize(request.response, Person));
+    HttpRequest.request('persons', method: 'POST', sendData: toJson(personAux)).then((request) {
+      fire('person-saved', detail: fromJson(request.response, Person));
       editing = false;
     });
   }

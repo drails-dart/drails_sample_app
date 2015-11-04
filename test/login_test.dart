@@ -6,7 +6,7 @@ library drails_sample_app_test;
 import 'package:unittest/unittest.dart';
 import '../bin/server.dart' as server;
 import 'package:http/http.dart';
-import 'package:drails/drails.dart';
+import 'package:drails/drails.dart' hide POST;
 
 void main() => loginTests();
 

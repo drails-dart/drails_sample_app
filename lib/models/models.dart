@@ -4,7 +4,9 @@
 /// The models library.
 ///
 /// This is an awesome library. More dartdocs go here.
-library models;
+library dson_sample_app_models;
+
+import 'package:dson/dson.dart';
 
 part 'user.dart';
 part 'person.dart';

@@ -6,9 +6,6 @@ import 'package:drails_sample_app/models/models.dart';
 import 'dart:html';
 import 'package:dson/dson.dart';
 
-@MirrorsUsed(targets:const['models'], override:'*')
-import 'dart:mirrors';
-
 /// A Polymer `<main-app>` element.
 @CustomTag('main-app')
 class MainApp extends PolymerElement {
@@ -24,15 +21,15 @@ class MainApp extends PolymerElement {
     });
     var usrStr = window.sessionStorage['user'];
     if(usrStr != null)
-      user = deserialize(usrStr, User);
+      user = fromJson(usrStr, User);
     else
       user = new User();
   }
   
   login(Event e, details, Element target) {
-    HttpRequest.request("login", method: 'POST', sendData: serialize(user)).then((request) {
+    HttpRequest.request("login", method: 'POST', sendData: toJson(user)).then((request) {
       window.sessionStorage['user'] = request.response;
-      user = deserialize(request.response, User);
+      user = fromJson(request.response, User);
     });
   }
   
